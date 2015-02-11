@@ -24,53 +24,12 @@ public class App extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        if (req.getRequestURI().endsWith("/db")) {
-            showDatabase(req, resp);
-        } else {
+      
             showHome(req, resp);
-        }
+        
     }
 
-    private void showDatabase(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Connection connection = null;
-        try {
-            connection = getConnection();
-
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-            stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-            ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-            String out = "Hello!\n";
-            while (rs.next()) {
-                out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
-            }
-
-            resp.getWriter().print(out);
-        } catch (Exception e) {
-            resp.getWriter().print("There was an error: " + e.getMessage());
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                }
-            }
-        }
-    }
-
-    private Connection getConnection() throws URISyntaxException, SQLException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        int port = dbUri.getPort();
-
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + port + dbUri.getPath();
-
-        return DriverManager.getConnection(dbUrl, username, password);
-    }
+    
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
@@ -93,11 +52,6 @@ public class App extends HttpServlet {
                 + "<tr><td>Cadena de valores</td><td><textarea rows=\"4\" cols=\"100\" name=\"calc\"></textarea></td></tr>"
                 + "<tr><td>valor del proxy</td><td><input type=\"text\" name=\"proxy\"></td></tr>"
                 + "</table> <input type=\"submit\" value=\"realizar calculos\">"
-                //                + "    Cadena de valores:"
-                //                + "<br>"
-                //                + "   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
-                //                + "    <br>Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
-                //                + "   <br> <input type=\"submit\" value=\"Calc\">\n"
                 + "</form> ");
         pw.println("<h2></h2>");
         pw.println("Ingrese la cadena de datos de prueba separando x & y por comas");
