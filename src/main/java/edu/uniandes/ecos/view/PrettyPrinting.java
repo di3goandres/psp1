@@ -20,10 +20,6 @@ import java.util.Scanner;
  */
 public class PrettyPrinting {
 
-    public static List<Double> estimatedProxySize = new LinkedList<Double>();
-    public static List<Double> PlanAddedModifiedSize = new LinkedList<Double>();
-    public static List<Double> ActualAddedModifiedSize = new LinkedList<Double>();
-    public static List<Double> ActualDevelopmentHours = new LinkedList<Double>();
 
     public static List<ParNumber> test1 = new LinkedList<ParNumber>();
     public static List<ParNumber> test2 = new LinkedList<ParNumber>();
@@ -35,33 +31,16 @@ public class PrettyPrinting {
             CargarDatosIniciales();
             GestorRegresion gRegresion = new GestorRegresion();
             System.out.println("Test 1");
-            System.out.println(gRegresion.GestorRegresion(test1));
+            System.out.println(gRegresion.GestorRegresion(test1, 386));
             System.out.println("Test 2");
-            System.out.println(gRegresion.GestorRegresion(test2));
+            System.out.println(gRegresion.GestorRegresion(test2, 386));
             System.out.println("Test 3");
-            System.out.println(gRegresion.GestorRegresion(test3));
+            System.out.println(gRegresion.GestorRegresion(test3, 386));
             System.out.println("Test 4");
-            System.out.println(gRegresion.GestorRegresion(test4));
+            System.out.println(gRegresion.GestorRegresion(test4,386));
 
 
             
-
-//            Regresion re = new Regresion(estimatedProxySize, ActualAddedModifiedSize, estimatedProxySize.size());
-//            System.out.println("Test 1");
-//            System.out.println(re.gerResult());
-//
-//            Regresion re2 = new Regresion(estimatedProxySize, ActualDevelopmentHours, estimatedProxySize.size());
-//            System.out.println("Test 2");
-//            System.out.println(re2.gerResult());
-//
-//            Regresion re3 = new Regresion(PlanAddedModifiedSize, ActualAddedModifiedSize, estimatedProxySize.size());
-//            System.out.println("Test 3");
-//            System.out.println(re3.gerResult());
-////          
-//
-//            Regresion re4 = new Regresion(PlanAddedModifiedSize, ActualDevelopmentHours, estimatedProxySize.size());
-//            System.out.println("Test 4");
-//            System.out.println(re4.gerResult());
         } catch (NumberFormatException e) {
             System.out.println("Error:" + e.getMessage());
         }
@@ -112,49 +91,5 @@ public class PrettyPrinting {
         test4.add(new ParNumber(1206, 198.7));
         test4.add(new ParNumber(433, 38.8));
         test4.add(new ParNumber(1130, 138.2));
-        estimatedProxySize.add(130d);
-        estimatedProxySize.add(650d);
-        estimatedProxySize.add(99d);
-        estimatedProxySize.add(150d);
-        estimatedProxySize.add(128d);
-        estimatedProxySize.add(302d);
-        estimatedProxySize.add(95d);
-        estimatedProxySize.add(945d);
-        estimatedProxySize.add(368d);
-        estimatedProxySize.add(961d);
-
-        PlanAddedModifiedSize.add(163d);
-        PlanAddedModifiedSize.add(765d);
-        PlanAddedModifiedSize.add(141d);
-        PlanAddedModifiedSize.add(166d);
-        PlanAddedModifiedSize.add(137d);
-        PlanAddedModifiedSize.add(355d);
-        PlanAddedModifiedSize.add(136d);
-        PlanAddedModifiedSize.add(1206d);
-        PlanAddedModifiedSize.add(433d);
-        PlanAddedModifiedSize.add(1130d);
-
-        ActualAddedModifiedSize.add(186d);
-        ActualAddedModifiedSize.add(699d);
-        ActualAddedModifiedSize.add(132d);
-        ActualAddedModifiedSize.add(272d);
-        ActualAddedModifiedSize.add(291d);
-        ActualAddedModifiedSize.add(331d);
-        ActualAddedModifiedSize.add(199d);
-        ActualAddedModifiedSize.add(1890d);
-        ActualAddedModifiedSize.add(788d);
-        ActualAddedModifiedSize.add(1601d);
-
-        ActualDevelopmentHours.add(15d);
-        ActualDevelopmentHours.add(69.9d);
-        ActualDevelopmentHours.add(6.5d);
-        ActualDevelopmentHours.add(22.4d);
-        ActualDevelopmentHours.add(28.4d);
-        ActualDevelopmentHours.add(65.9d);
-        ActualDevelopmentHours.add(19.4d);
-        ActualDevelopmentHours.add(198.7d);
-        ActualDevelopmentHours.add(38.8d);
-        ActualDevelopmentHours.add(138.2d);
-
     }
 }

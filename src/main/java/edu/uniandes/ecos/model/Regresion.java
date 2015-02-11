@@ -6,6 +6,7 @@
 package edu.uniandes.ecos.model;
 
 import edu.uniandes.ecos.model.DesviacionEstandar;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,36 +16,38 @@ import java.util.List;
  */
 public class Regresion {
 
-    public List<Double> listasNumerosX;
-    public List<Double> listasNumerosY;
+    public List<Double> listasNumerosX = new LinkedList<Double>();
+    public List<Double> listasNumerosY = new LinkedList<Double>();
     public double mediaX;
     public double mediaY;
     public double SumXY;
     public double powX;
     public int nDat;
-    public double R2;
+    public double proxy;
 
     /**
      *
      * @param numX
      * @param numY
      */
-    public Regresion(List<Double> numX, List<Double> numY, int totaldatos) {
+    public Regresion(List<ParNumber> datosCalculos, double proxyP) {
 
-        this.listasNumerosX = numX;
-        this.listasNumerosY = numY;
-
+        this.proxy = proxyP;
+        this.nDat = datosCalculos.size();
+        for (ParNumber pares : datosCalculos) {
+            this.listasNumerosX.add(pares.getX());
+            this.listasNumerosY.add(pares.getY());
+        }
+        this.SumXY = getSumXY(datosCalculos);
+        this.powX = getPowXorY(this.listasNumerosX);
         mediaX = getmediaXorY(listasNumerosX);
         mediaY = getmediaXorY(listasNumerosY);
-        this.nDat = totaldatos;
-        this.SumXY = getSumXY();
-        this.powX = getPowXorY(this.listasNumerosX);
     }
 
-    public double getSumXY() {
+    public double getSumXY(List<ParNumber> datosCalculosP) {
         double total = 0;
-        for (int i = 0; i < listasNumerosX.size(); i++) {
-            total = total + (listasNumerosX.get(i) * listasNumerosY.get(i));
+        for (ParNumber pares : datosCalculosP) {
+            total = total + (pares.getX() * pares.getY());
         }
         return total;
     }
@@ -74,7 +77,6 @@ public class Regresion {
     public double getParameterBCero() {
         double parameterBOne = 0;
         parameterBOne = this.mediaY - (getParameterBOne() * this.mediaX);
-
         return parameterBOne;
 
     }
@@ -96,13 +98,13 @@ public class Regresion {
 
         parameterRegresionXY = ((nDat * SumXY) - (sumX * sumY)) / Math.sqrt(powX * powY);
 
-        this.R2 = parameterRegresionXY * parameterRegresionXY;
         return parameterRegresionXY;
     }
 
     public double getR2() {
 
-        return this.R2;
+        double Rcuadrado = getRegresionXY();
+        return Math.pow(Rcuadrado, 2);
     }
 
     public double getmediaXorY(List<Double> num) {
@@ -114,12 +116,12 @@ public class Regresion {
 
     public String gerResult() {
 
-        String retorno = "Bo= " + getParameterBCero()+ '\n';
+        String retorno = "Bo= " + getParameterBCero() + '\n';
         retorno = retorno + "B1 =" + getParameterBOne() + '\n';;
         retorno = retorno + "r(x,y) =" + getRegresionXY() + '\n';;
-        retorno = retorno + "r*r =" + this.R2 + '\n';;
-        retorno = retorno + "Yk =" + getParameterYk(386) + '\n';;
-        
+        retorno = retorno + "r*r =" + getR2() + '\n';;
+        retorno = retorno + "Yk =" + getParameterYk(this.proxy) + '\n';
+
         return retorno;
 
     }

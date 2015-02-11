@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class GestorRegresion {
 
-    public String GestorRegresion(List<ParNumber> datosCalculos) {
+    public String GestorRegresion(List<ParNumber> datosCalculos, double proxy) {
 
         List<Double> numberX = new LinkedList<Double>();
         List<Double> numberY = new LinkedList<Double>();
@@ -28,7 +28,7 @@ public class GestorRegresion {
             numberY.add(pares.getY());
 
         }
-        Regresion re = new Regresion(numberX, numberY, tamanioLista);
+        Regresion re = new Regresion(datosCalculos, proxy);
         return re.gerResult();
 
     }
