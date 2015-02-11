@@ -18,16 +18,6 @@ public class GestorRegresion {
 
     public String GestorRegresion(List<ParNumber> datosCalculos, double proxy) {
 
-        List<Double> numberX = new LinkedList<Double>();
-        List<Double> numberY = new LinkedList<Double>();
-
-        int tamanioLista = datosCalculos.size();
-        for (ParNumber pares : datosCalculos) {
-
-            numberX.add(pares.getX());
-            numberY.add(pares.getY());
-
-        }
         Regresion re = new Regresion(datosCalculos, proxy);
         return re.gerResult();
 
