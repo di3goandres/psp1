@@ -92,7 +92,7 @@ public class App extends HttpServlet {
                 + "<table>"
                 + "<tr><td>Cadena de valores</td><td><textarea rows=\"4\" cols=\"100\" name=\"calc\"></textarea></td></tr>"
                 + "<tr><td>valor del proxy</td><td><input type=\"text\" name=\"proxy\"></td></tr>"
-                + "</table> <input type=\"sumbit\" value=\"realizar calculos\">"
+                + "</table> <input type=\"submit\" value=\"realizar calculos\">"
                 //                + "    Cadena de valores:"
                 //                + "<br>"
                 //                + "   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
