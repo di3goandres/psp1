@@ -88,10 +88,10 @@ public class App extends HttpServlet {
         PrintWriter pw = resp.getWriter();
         pw.write("<html>");
 
-        pw.write("<form action=\"calc\" method=\"post\"> \n"
+        pw.write("<form action=\"calc\" method=\"post\">"
                 + "    Cadena de valores:   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
-                + "    Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
-                + "    <input type=\"submit\" value=\"Calc\">\n"
+                + "    <br>Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
+                + "   <br> <input type=\"submit\" value=\"Calc\">\n"
                 + "</form> ");
         pw.println("<h2></h2>");
         pw.println("Ingrese la cadena de datos de prueba separando x & y por comas");
