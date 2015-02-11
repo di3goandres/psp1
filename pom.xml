@@ -26,6 +26,14 @@
       <version>7.6.0.v20120127</version>
       <type>jar</type>
     </dependency>
+
+   
+
+    <dependency>
+      <groupId>postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.0-801.jdbc4</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
