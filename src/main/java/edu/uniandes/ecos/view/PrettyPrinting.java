@@ -20,7 +20,6 @@ import java.util.Scanner;
  */
 public class PrettyPrinting {
 
-
     public static List<ParNumber> test1 = new LinkedList<ParNumber>();
     public static List<ParNumber> test2 = new LinkedList<ParNumber>();
     public static List<ParNumber> test3 = new LinkedList<ParNumber>();
@@ -29,6 +28,9 @@ public class PrettyPrinting {
     public static void main(String[] args) {
         try {
             CargarDatosIniciales();
+
+          
+            
             GestorRegresion gRegresion = new GestorRegresion();
             System.out.println("Test 1");
             System.out.println(gRegresion.GestorRegresion(test1, 386));
@@ -37,10 +39,8 @@ public class PrettyPrinting {
             System.out.println("Test 3");
             System.out.println(gRegresion.GestorRegresion(test3, 386));
             System.out.println("Test 4");
-            System.out.println(gRegresion.GestorRegresion(test4,386));
+            System.out.println(gRegresion.GestorRegresion(test4, 386));
 
-
-            
         } catch (NumberFormatException e) {
             System.out.println("Error:" + e.getMessage());
         }
