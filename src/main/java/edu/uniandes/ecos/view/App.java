@@ -105,7 +105,7 @@ public class App extends HttpServlet {
         pw.println("163,15.0|765,69.9|141,6.5|166,22.4|137,28.4|355,65.9|136,19.4|1206,198.7|433,38.8|1130,138.2");
 
         pw.write("<form action=\"calc\" method=\"post\"> \n"
-                + "    Conjunto de datos: <input type=\"text\" name=\"Pares\">\n"
+                + "    Conjunto de datos: <input type=\"text\" name=\"calc\">\n"
                 + "    Proxy: <input type=\"text\" name=\"proxy\">\n"
                 + "    <input type=\"submit\" value=\"Calc\">\n"
                 + "</form> ");
@@ -116,7 +116,7 @@ public class App extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String calc = req.getParameter("Pares");
+        String calc = req.getParameter("calc");
         String proxy = req.getParameter("proxy");
 
         GestorRegresion gestorRegresion = new GestorRegresion();
