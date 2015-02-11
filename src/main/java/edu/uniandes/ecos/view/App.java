@@ -84,7 +84,7 @@ public class App extends HttpServlet {
 
     private void showHome(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-      
+
         PrintWriter pw = resp.getWriter();
         pw.write("<html>");
         pw.println("<h2>PSP1 Program!</h2>");
@@ -121,7 +121,7 @@ public class App extends HttpServlet {
 
         GestorRegresion gestorRegresion = new GestorRegresion();
         String resultado = gestorRegresion.GestorRegresion((LinkedList) splitNumbers(calc), Double.valueOf(proxy));
-
+        resp.getWriter().print(resultado);
     }
 
     private List<ParNumber> splitNumbers(String parametros) {
