@@ -89,9 +89,15 @@ public class App extends HttpServlet {
         pw.write("<html>");
 
         pw.write("<form action=\"calc\" method=\"post\">"
-                + "    Cadena de valores:   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
-                + "    <br>Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
-                + "   <br> <input type=\"submit\" value=\"Calc\">\n"
+                + "<table>"
+                + "<tr><td>Cadena de valores</td><td><textarea rows=\"4\" cols=\"100\" name=\"calc\"></textarea></td></tr>"
+                + "<tr><td>valor del proxy</td><td><input type=\"text\" name=\"proxy\"></td></tr>"
+                + "</table> <input type=\"sumbit\" value=\"realizar calculos\">"
+                //                + "    Cadena de valores:"
+                //                + "<br>"
+                //                + "   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
+                //                + "    <br>Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
+                //                + "   <br> <input type=\"submit\" value=\"Calc\">\n"
                 + "</form> ");
         pw.println("<h2></h2>");
         pw.println("Ingrese la cadena de datos de prueba separando x & y por comas");
