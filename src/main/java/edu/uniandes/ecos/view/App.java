@@ -93,10 +93,10 @@ public class App extends HttpServlet {
 
         pw.println("<h3>Cadenas de ejemplo:</h3>");
         pw.println("<h3>Test 1: </h3>");
-        pw.println("130,186 650,699 99,132 150,272 128,291 302,331 95,199 945,1890 368,788 961,1601");
+        pw.println("130,186|650,699|99,132|150,272|128,291|302,331|95,199|945,1890|368,788|961,1601");
 
         pw.println("<h3>Test 2: </h3>");
-        pw.println("130,15.0 650,69.9 99,6.5 150,22.4 128,28.4 302,65.9 95,19.4 945,198.7 368,38.8 961,138.2");
+        pw.println("130,15.0|650,69.9|99,6.5|150,22.4|128,28.4|302,65.9|95,19.4|945,198.7|368,38.8|961,138.2");
 
         pw.println("<h3>Test 3: </h3>");
         pw.println("163,186 765,699 141,132 166,272 137,291 355,331 136,199 1206,1890 433,788 1130,1601");
@@ -128,7 +128,7 @@ public class App extends HttpServlet {
 
         List<ParNumber> listaDeNumeros = new LinkedList<ParNumber>();
 
-        String[] pares = parametros.split(" ");
+        String[] pares = parametros.split("|");
 
         for (String parXY : pares) {
             String[] xy = parXY.split(",");
