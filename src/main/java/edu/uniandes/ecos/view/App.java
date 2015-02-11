@@ -89,8 +89,7 @@ public class App extends HttpServlet {
         pw.write("<html>");
 
         pw.write("<form action=\"calc\" method=\"post\"> \n"
-                + "    <textarea rows=\"4\" cols=\"50\" name=\"calc\" > </textarea> "
-                + "    Cadena de valores: <input type=\"text\" name=\"calcs\">\n"
+                + "    Cadena de valores:   <textarea rows=\"4\" cols=\"100\" name=\"calc\" > </textarea> "
                 + "    Valor del proxy: <input type=\"text\" name=\"proxy\">\n"
                 + "    <input type=\"submit\" value=\"Calc\">\n"
                 + "</form> ");
