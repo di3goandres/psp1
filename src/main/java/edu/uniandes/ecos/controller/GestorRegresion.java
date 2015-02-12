@@ -34,8 +34,8 @@ public class GestorRegresion {
 
         PrintWriter pw = resp.getWriter();
         pw.write("<html>");
-        pw.println("<h1>PSP1 Programa que calcula Regresión lineal y "
-                + "Coeficiente de variación</h1>");
+        pw.println("<h1>PSP1 Programa que calcula Regresion lineal y "
+                + "Coeficiente de variacion</h1>");
         pw.println("<p>ECOS 2015 <br>Diego Andres Montealegre Garcia</p>");
         pw.write("<html>");
         pw.println("Ingrese la cadena de datos de prueba separando x & y por comas");
