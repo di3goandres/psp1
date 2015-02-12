@@ -116,11 +116,11 @@ public class Regresion {
 
     public String gerResult() {
 
-        String retorno = "Bo= " + getParameterBCero() + '\n';
-        retorno = retorno + "B1 =" + getParameterBOne() + '\n';;
-        retorno = retorno + "r(x,y) =" + getRegresionXY() + '\n';;
-        retorno = retorno + "r*r =" + getR2() + '\n';;
-        retorno = retorno + "Yk =" + getParameterYk(this.proxy) + '\n';
+        String retorno = "Bo= " + getParameterBCero() + "<br>";
+        retorno = retorno + "B1 =" + getParameterBOne() + "<br>";
+        retorno = retorno + "r(x,y) =" + getRegresionXY() + "<br>";
+        retorno = retorno + "r*r =" + getR2() + "<br>";
+        retorno = retorno + "Yk =" + getParameterYk(this.proxy) + "<br>";
 
         return retorno;
 
